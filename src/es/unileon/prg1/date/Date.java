@@ -164,7 +164,11 @@ public class Date{
         return(isSameDayNew(day) && isSameMonthNew(month) && isSameYearNew(year));
 
     }
-
+/**
+ * Nos indica el nombre del mes segun el numero de este.
+ * 
+ * @return Nombre del mes
+ */
     public String monthName(){
         StringBuffer mes = new StringBuffer();
         switch (this.month) {
@@ -198,4 +202,41 @@ public class Date{
         }
         return mes.toString();
     }
+
+    public boolean checkDay(){
+        switch (this.month) {
+            case value:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if(this.day > 31){
+                    system.out.println("Error, es imposible que un mes tenga más de 31 dias.");
+                    return false;}
+                else
+                    return true;
+            
+            case 2:
+                if(this.day > 29 && (this.year % 400 == 0 || (this.year % 4 == 0 && this.year % 100 != 0))){
+                    System.out.println("Error, Febrero no puede tener más de 29 días");
+                    return false;
+                }
+                else 
+                    return true;
+                if(this.day > 28)
+                    return false;
+                else
+                    return true;
+                default:
+                if(this.day > 30){
+                    system.out.println("Error, estes meses no pueden tener mas de 30 dias.");
+                    return false;}
+                    else
+                    return true;
+                
+        }
+    }
+
 }
