@@ -252,6 +252,7 @@ public class Date{
             case 1:
             case 2:
                 sesion.append("Invierno");
+            
             case 3:
                 if(this.day>=21)
                     sesion.append("Primavera");
@@ -267,10 +268,12 @@ public class Date{
                     sesion.append("Verano");
                 else
                     sesion.append("Primavera");
-            case 7:
+            
+                    case 7:
             case 8:
                 sesion.append("Verano");
-            case 9:
+            
+                case 9:
                 if(this.day>=21)
                     sesion.append("Otoño");
                 else
@@ -281,4 +284,48 @@ public class Date{
             }
         return sesion.toString();
     }
+
+    public void monthsLeft(){
+        int diferencia = 13 - this.month;
+        System.out.println("El numero de meses que quedan es: " + diferencia);
+    }
+
+    public String stringDate(){
+        StringBuffer fecha = new StringBuffer();
+
+        fecha.append(this.day + "/" + this.month + "/" + this.year);
+        return fecha.toString();
+    }
+
+    public String endMonth(){
+        StringBuffer fechas = new StringBuffer();
+
+        switch (this.month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+            for(int i = this.day +  1; i<31; i++)
+                fechas.append(this.day + "/" + this.month + "/" + this.year);
+            
+            case 2:
+                if(this.day > 29 && (this.year % 400 == 0 || (this.year % 4 == 0 && this.year % 100 != 0))){
+                    for(int i = this.day +  1; i<29; i++)
+                    fechas.append(this.day + "/" + this.month + "/" + this.year);}
+                else{
+                    for(int i = this.day +  1; i<28; i++)
+                    fechas.append(this.day + "/" + this.month + "/" + this.year);}
+
+            default:
+                for(int i = this.day +  1; i<30; i++)
+                fechas.append(this.day + "/" + this.month + "/" + this.year);
+
+                
+        }
+       return fechas.toString(); 
+    }
+
 }
