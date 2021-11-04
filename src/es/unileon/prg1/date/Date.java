@@ -205,7 +205,7 @@ public class Date{
 
     public boolean checkDay(){
         switch (this.month) {
-            case value:
+            case 1:
             case 3:
             case 5:
             case 7:
@@ -239,4 +239,46 @@ public class Date{
         }
     }
 
+    public String printSeason(){
+        StringBuffer sesion = new StringBuffer();
+
+        switch(this.month){
+            case 12:
+                if(this.day>=21)
+                    sesion.append("Invierno");
+                else
+                    sesion.append("Otoño");
+
+            case 1:
+            case 2:
+                sesion.append("Invierno");
+            case 3:
+                if(this.day>=21)
+                    sesion.append("Primavera");
+                else
+                    sesion.append("Invierno");
+
+            case 4:
+            case 5:
+                sesion.append("Primavera");
+            
+            case 6:
+                if(this.day>=21)
+                    sesion.append("Verano");
+                else
+                    sesion.append("Primavera");
+            case 7:
+            case 8:
+                sesion.append("Verano");
+            case 9:
+                if(this.day>=21)
+                    sesion.append("Otoño");
+                else
+                    sesion.append("Verano");
+            case 10:
+            case 11:
+                sesion.append("Otoño");
+            }
+        return sesion.toString();
+    }
 }
