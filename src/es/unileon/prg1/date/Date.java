@@ -154,10 +154,48 @@ public class Date{
     public boolean isSameYearNew(int year){
         return(this.year == year);
     }
-
-    public boolean isSameNew(Date fecha){
+/**
+ * Compara las 2 fechas para saber si son identicas
+ * 
+ * @return True o False
+ */
+    public boolean isSameNew(){
 
         return(isSameDayNew(day) && isSameMonthNew(month) && isSameYearNew(year));
 
+    }
+
+    public String monthName(){
+        StringBuffer mes = new StringBuffer();
+        switch (this.month) {
+            case 1:
+                mes.append("Enero");
+            case 2:
+                mes.append("Febrero");
+            case 3:
+                mes.append("Marzo");
+            case 4:
+                mes.append("Mayo");
+            case 5:
+                mes.append("Mayo");
+            case 6:
+                mes.append("Junio");
+            case 7:
+                mes.append("Julio");
+            case 8:
+                mes.append("Agosto");
+            case 9:
+                mes.append("Septiembre");
+            case 10:
+                mes.append("Octubre");
+            case 11:
+                mes.append("Noviembre");
+            case 12:
+                mes.append("Diciembre");
+            default:
+
+                break;
+        }
+        return mes.toString();
     }
 }
